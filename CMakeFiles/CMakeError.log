@@ -1,0 +1,96 @@
+Determining if the gettid exist failed with the following output:
+Change Dir: /home/rock/rasplibhv/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a229d/fast && /usr/bin/make -f CMakeFiles/cmTC_a229d.dir/build.make CMakeFiles/cmTC_a229d.dir/build
+make[1]: Entering directory '/home/rock/rasplibhv/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a229d.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_a229d.dir/CheckSymbolExists.c.o   -c /home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'gettid' undeclared (first use in this function); did you mean 'getgid'?
+    8 |   return ((int*)(&gettid))[argc];
+      |                   ^~~~~~
+      |                   getgid
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_a229d.dir/build.make:66: CMakeFiles/cmTC_a229d.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/rock/rasplibhv/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a229d/fast] Error 2
+
+
+File /home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gettid
+  return ((int*)(&gettid))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcpy exist failed with the following output:
+Change Dir: /home/rock/rasplibhv/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4f154/fast && /usr/bin/make -f CMakeFiles/cmTC_4f154.dir/build.make CMakeFiles/cmTC_4f154.dir/build
+make[1]: Entering directory '/home/rock/rasplibhv/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4f154.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_4f154.dir/CheckSymbolExists.c.o   -c /home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'strlcpy' undeclared (first use in this function); did you mean 'strncpy'?
+    8 |   return ((int*)(&strlcpy))[argc];
+      |                   ^~~~~~~
+      |                   strncpy
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_4f154.dir/build.make:66: CMakeFiles/cmTC_4f154.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/rock/rasplibhv/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_4f154/fast] Error 2
+
+
+File /home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcpy
+  return ((int*)(&strlcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/rock/rasplibhv/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7aea6/fast && /usr/bin/make -f CMakeFiles/cmTC_7aea6.dir/build.make CMakeFiles/cmTC_7aea6.dir/build
+make[1]: Entering directory '/home/rock/rasplibhv/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7aea6.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_7aea6.dir/CheckSymbolExists.c.o   -c /home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'strlcat' undeclared (first use in this function); did you mean 'strncat'?
+    8 |   return ((int*)(&strlcat))[argc];
+      |                   ^~~~~~~
+      |                   strncat
+/home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_7aea6.dir/build.make:66: CMakeFiles/cmTC_7aea6.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/rock/rasplibhv/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_7aea6/fast] Error 2
+
+
+File /home/rock/rasplibhv/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
