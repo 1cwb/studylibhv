@@ -4,8 +4,8 @@ export GLOBAL_TOP_PATH := $(CUR_PATH)
 export GLOBAL_INC :=-I ./
 
 # 指定编译器
+export GLOBAL_CXX := g++
 export GLOBAL_CC := g++
-
 # CFLAG包括头文件目录
 export GLOBAL_CFLAGS := -g -Wall -fno-elide-constructors -std=c++11
 
@@ -29,8 +29,12 @@ define CRT_DIR
 	if [ ! -d $(1) ];\
 	 	then\
     	mkdir -p $(1);\
-    	echo "******$(1) created success!!!******";\
-    else\
-      echo "******$(1) has been exited!!!******";\
 	fi	
+endef
+
+define RM_DIR
+	if [ -d $(1) ];\
+		then\
+		rm -rf $(1);\
+	fi
 endef

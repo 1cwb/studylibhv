@@ -2,8 +2,8 @@ DIRS := $(shell find $(GLOBAL_TOP_PATH) -maxdepth 5 -type d)
 DIRS := $(filter-out $(GLOBAL_TOP_PATH), $(DIRS))
 
 MAKEFILES += $(foreach dir, $(DIRS), $(wildcard $(dir)/*.mak))
-#$(info include $(MAKEFILES))
 include $(MAKEFILES)
+
 #include $(GLOBAL_TOP_PATH)stdlib/stdlibbuild.mak
 #include $(GLOBAL_TOP_PATH)oled/oledbuild.mak
 #include $(GLOBAL_TOP_PATH)network/networkbuild.mak
@@ -23,12 +23,16 @@ $(TARGET): $(GLOBAL_OBJS)
 clean:
 #	rm -f $(GLOBAL_OBJS)
 	rm -f $(TARGET)
-	rm -r $(GLOBAL_OUTPUT_OBJS_PATH)
+	@$(call RM_DIR,$(GLOBAL_OUTPUT_OBJS_PATH))
 
 # 编译规则 加入头文件 $@代表目标文件 $< 代表第一个依赖文件
 %.o:%.cpp 
+	$(GLOBAL_CXX) $(GLOBAL_CFLAGS) $(GLOBAL_INC) -o $@ -c $<
+	@`mv $@ $(GLOBAL_OUTPUT_OBJS_PATH)`
+
+%.o:%.c
 	$(GLOBAL_CC) $(GLOBAL_CFLAGS) $(GLOBAL_INC) -o $@ -c $<
-	`mv $@ $(GLOBAL_OUTPUT_OBJS_PATH)`
+	@`mv $@ $(GLOBAL_OUTPUT_OBJS_PATH)`
 
 creat_dir:
 	@$(call CRT_DIR,$(GLOBAL_OUTPUT_OBJS_PATH))
