@@ -55,13 +55,8 @@ HV_EXPORT char* safe_strncpy(char* dest, const char* src, size_t n);
 // safe_strncpy n = sizeof(dest_buf)
 HV_EXPORT char* safe_strncat(char* dest, const char* src, size_t n);
 
-#if !HAVE_STRLCPY
-    #define strlcpy safe_strncpy
-#endif
-
-#if !HAVE_STRLCAT
-    #define strlcat safe_strncat
-#endif
+#define strlcpy safe_strncpy
+#define strlcat safe_strncat
 
 #define strrchr_dot(str) strrchr(str, '.')
 HV_EXPORT const char* strrchr_dir(const char* filepath);

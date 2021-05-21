@@ -34,7 +34,7 @@
 #define NET_ENDIAN      BIG_ENDIAN
 #endif
 
-// BYTE_ORDER
+// BYTE_ORDER has be defined in endian.h
 #ifndef BYTE_ORDER
 #if defined(ARCH_X86) || defined(ARCH_X86_64) || defined(__ARMEL__)
 #define BYTE_ORDER      LITTLE_ENDIAN

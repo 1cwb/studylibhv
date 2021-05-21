@@ -107,7 +107,11 @@ char* strlower(char* str)
     return str;
 }
 
-char* strreverse(char* str)
+/*
+    str change:
+    ABC -> CBA
+*/
+char* strreverse(char* str) 
 {
     if(str == NULL)
     {
@@ -161,6 +165,10 @@ char* safe_strncat(char* dest, const char* src, size_t n)
     return ret;
 }
 
+/**
+ * str start with start
+ * "123ddd" starts with "123" 
+ */
 bool strstartswitch(const char* str, const char* start)
 {
     assert(str != NULL && start != NULL);
@@ -172,6 +180,10 @@ bool strstartswitch(const char* str, const char* start)
     return *start == '\0';
 }
 
+/**
+ * str ends with end
+ * "123ddd" ends with "ddd" 
+ */
 bool strendswitch(const char* str, const char* end)
 {
     assert(str != NULL && end != NULL);
@@ -207,6 +219,11 @@ bool strcontains(const char* str, const char* sub)
     return strstr(str, sub) != NULL;
 }
 
+/*
+ * get dir
+ * input: /etc/bin/hello
+ * output: hello
+*/
 const char* strrchr_dir(const char* filepath)
 {
     const char* p = filepath;

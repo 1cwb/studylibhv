@@ -7,7 +7,8 @@ export GLOBAL_INC :=-I ./
 export GLOBAL_CXX := g++
 export GLOBAL_CC := g++
 # CFLAG包括头文件目录
-export GLOBAL_CFLAGS := -g -Wall -fno-elide-constructors -std=c++11
+export GLOBAL_CFLAGS := -g -Wall -fno-elide-constructors -std=c++11 
+GLOBAL_CFLAGS += -Wno-invalid-offsetof
 
 # 静态链接库
 export GLOBAL_LDFLAGS :=
