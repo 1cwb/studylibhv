@@ -114,6 +114,7 @@ public:
         if(len > this->len - _size)
         {
             size_t newsize = MAX(this->len, len)*2;
+            base = (char*)safe_realloc(base, newsize, this->len);
             this->len = newsize;
         }
         if(_offset < len)
@@ -124,6 +125,69 @@ public:
         memcpy(data() - len, ptr, len);
         _offset -= len;
         _size += len;
+    }
+    void push_back(void* ptr, size_t len)
+    {
+        if(len > this->len - _size)
+        {
+            size_t newsize = MAX(this->len, len)*2;
+            base = (char*)safe_realloc(base, newsize, this->len);
+            this->len = newsize;
+        }
+        else if(len > this->len - _size - _offset)
+        {
+            memmove(base, data(), _size);
+            _offset = 0;
+        }
+        memcpy(data() + _size, ptr, len);
+        _size += len;
+    }
+    void pop_front(void* ptr, size_t len)
+    {
+        if(len <= _size)
+        {
+            if(ptr)
+            {
+                memcpy(ptr, data(), len);
+            }
+            _offset += len;
+            if(_offset >= len)
+            {
+                _offset = 0;
+            }
+            _size -= len;
+        }
+    }
+    void pop_back(void* ptr, size_t len)
+    {
+        if(len <= _size)
+        {
+            if(ptr)
+            {
+                memcpy(ptr, data() + _size - len, len);
+            }
+            _size -= len;
+        }
+    }
+    void clear() 
+    {
+        _offset = _size = 0;
+    }
+    void prepend(void* ptr, size_t len)
+    {
+        push_front(ptr, len);
+    }
+    void append(void* ptr, size_t len)
+    {
+        push_back(ptr, len);
+    }
+    void insert(void *ptr, size_t len)
+    {
+        push_back(ptr, len);
+    }
+    void remove(size_t len)
+    {
+        pop_front(NULL, len);
     }
 private:
     size_t _offset;
