@@ -1,15 +1,21 @@
 #include <iostream>
 #include "hbase.h"
 #include "hbuf.h"
+#include "hlog.h"
+
 using namespace std;
 int main()
 {
-    char buf[MAX_PATH];
-    cout << get_executable_dir( buf, MAX_PATH) <<endl;
-    cout <<"hello world" <<endl;
-    HBuf test(buf, MAX_PATH);
-    cout <<offsetof(hbuf_s ,base) <<endl;
-    cout <<strstartswitch("ABCD" ,"ABC") <<endl;
-    cout <<strrchr_dir("/etc/mm/hello") <<endl;
+    hlog_set_level(LOG_LEVEL_DEBUG);
+    hlog_enable_color();
+    //logger_t* logger = hv_default_logger();
+    //logger_enable_color(logger, 1);
+    //logger_set_level(logger,LOG_LEVEL_DEBUG);
+    hlogd("hello worldww");
+    hloge("hello worldww");
+    printf("\033[31m xsdsds");
+
+    //logger_destroy(logger);
+    hlog_destroy();
     return 0;
 }
