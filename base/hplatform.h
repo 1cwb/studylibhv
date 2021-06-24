@@ -23,7 +23,7 @@
 #define strnicmp        strncasecmp
 
 
-// ENDIAN
+// ENDIAN The high byte of data is stored in the low address of memory
 #ifndef BIG_ENDIAN
 #define BIG_ENDIAN      4321
 #endif

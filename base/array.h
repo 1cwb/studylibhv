@@ -122,6 +122,8 @@ static inline void atype##_add(atype* p, type* elem, size_t pos) \
     { \
         memmove(p->ptr + pos+1, p->ptr + pos, sizeof(type) * (p->size - pos)); \
     } \
+    p->ptr[pos] = *elem;\
+    p->size++;\
 } \
 \
 static inline void atype##_del_nomove(atype* p, size_t pos) \

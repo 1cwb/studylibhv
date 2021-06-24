@@ -27,7 +27,7 @@
 
 // @param[IN | OUT | INOUT]
 #ifndef IN
-    #define in
+    #define IN
 #endif
 
 #ifndef OUT
