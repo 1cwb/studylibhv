@@ -38,7 +38,7 @@ static inline int atype##_empty(atype* p) \
     return p->size == 0; \
 } \
 \
-static inline type* atype##_at(atype* p, int pos) \
+static inline type* atype##_at(atype* p, size_t pos) \
 { \
     if(pos < 0) \
     { \
@@ -103,13 +103,11 @@ static inline void atype##_push_back(atype* p, type* elem) \
 \
 static inline void atype##_pop_back(atype* p) \
 { \
-    assert(p->size > 0) \
-    { \
-        p->size --; \
-    } \
+    assert(p->size > 0); \
+    p->size --; \
 } \
 \
-static inline void atype##_add(atype* p, type* elem, int pos) \
+static inline void atype##_add(atype* p, type* elem, size_t pos) \
 { \
     if(pos < 0)\
     { \
@@ -126,7 +124,7 @@ static inline void atype##_add(atype* p, type* elem, int pos) \
     } \
 } \
 \
-static inline void atype##_del_nomove(atype* p, int pos) \
+static inline void atype##_del_nomove(atype* p, size_t pos) \
 { \
     if(pos < 0)\
     { \
@@ -151,6 +149,6 @@ static inline void atype##_swap(atype* p, int pos1, int pos2) \
         pos2 += p->size; \
     } \
     type tmp = p->ptr[pos1]; \
-    p->ptr[pos1] = p->ptr[po2]; \
+    p->ptr[pos1] = p->ptr[pos2]; \
     p->ptr[pos2] = tmp; \
 }

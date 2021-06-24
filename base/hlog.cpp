@@ -368,11 +368,6 @@ int logger_print(logger_t* logger, int level, const char* fmt, ...)
     //[color/time/]
     len += snprintf(buf + len, bufsize - len, "%04d-%02d-%02d %02d:%02d:%02d.%03d %s ",
         year, month, day, hour, min, sec, ms, plevel);
-
-    printf("logger addr: %p\n",&logger);
-    printf("level addr:  %p\n",&level);
-    printf("fmt   addr:  %p\n",&fmt);
-
     va_list ap;
     va_start(ap, fmt);
     len += vsnprintf(buf + len, bufsize - len, fmt, ap);

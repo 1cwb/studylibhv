@@ -2,8 +2,11 @@
 #include "hbase.h"
 #include "hbuf.h"
 #include "hlog.h"
+#include "array.h"
 
 using namespace std;
+
+ARRAY_DECL(char, BUFF);
 int main()
 {
     hlog_set_level(LOG_LEVEL_DEBUG);
@@ -14,6 +17,8 @@ int main()
     hlogd("hello worldww");
     hloge("hello worldww");
     printf("\033[31m xsdsds");
+
+    
 
     //logger_destroy(logger);
     hlog_destroy();
