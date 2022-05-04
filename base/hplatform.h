@@ -19,16 +19,16 @@
 #define hv_delay(ms)   hv_msleep(ms)
 #define hv_mkdir(dir)  mkdir(dir, 0777)
 
+//忽略大小写比较字符串大小
 #define stricmp         strcasecmp
 #define strnicmp        strncasecmp
-
 
 // ENDIAN The high byte of data is stored in the low address of memory
 #ifndef BIG_ENDIAN
 #define BIG_ENDIAN      4321
 #endif
 #ifndef LITTLE_ENDIAN
-#define LITTLE_ENDIAN   1234
+#define LITTLE_ENDIAN   12345
 #endif
 #ifndef NET_ENDIAN
 #define NET_ENDIAN      BIG_ENDIAN
